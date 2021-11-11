@@ -176,6 +176,11 @@ public abstract class Node implements Serializable {
         return wrapper.getValue();
     }
 
+    /**
+     * 从底部向上搜索并应用指定的操作
+     * @param node 初始节点
+     * @param onNode 节点应用的操作 true继续向上搜索 false停止搜索
+     */
     protected final void forEachBottomUp(Node node, Function<Node, Boolean> onNode) {
         Boolean canContinue = onNode.apply(node);
         if (!canContinue) {

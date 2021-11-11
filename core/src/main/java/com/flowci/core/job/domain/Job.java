@@ -29,6 +29,7 @@ import com.google.common.collect.ImmutableSet;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang.time.FastDateFormat;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -187,7 +188,7 @@ public class Job extends Mongoable implements Pathable {
             .add(Status.SUCCESS)
             .build();
 
-    private static final SimpleDateFormat DateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    private static final FastDateFormat DateFormat = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss.SSS");
 
     public static final Integer MinPriority = 1;
 

@@ -56,7 +56,7 @@ public abstract class ObjectsHelper {
 
         for (Class<?> c = instance.getClass(); c != null; c = c.getSuperclass()) {
             for (Field f : c.getDeclaredFields()) {
-                all.put(f.getName(), f);
+                all.putIfAbsent(f.getName(), f);
             }
         }
 
